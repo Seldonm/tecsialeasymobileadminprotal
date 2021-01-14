@@ -1,0 +1,13 @@
+.example-container {
+  height: 100%;
+  margin: 0px;
+}
+
+mat-sidenav-content {
+  padding: 10px;
+}
+
+mat-icon {
+  margin-right: 5px;
+}
+

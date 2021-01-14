@@ -1,0 +1,17 @@
+.example-full-width {
+    width: 400px !important;
+}
+
+form, mat-card-actions {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+    padding-top: 120px;
+}
+
+mat-card {
+    height: 80%;
+}

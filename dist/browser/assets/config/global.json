@@ -1,0 +1,25 @@
+{
+  "API_ENDPOINT": "https://sv7v8ay3c5.execute-api.eu-central-1.amazonaws.com/v1",
+  "GIORNI": {
+    "1": "Lunedì",
+    "2": "Martedì",
+    "3": "Mercoledì",
+    "4": "Giovedì",
+    "5": "Venerdì",
+    "6": "Sabato",
+    "7": "Domenica"
+  },
+  "LOCATIONS_TO_SEND": 5,
+  "KEYCHAIN" : {
+    "USERNAME": "USERNAME",
+    "PASSWORD": "PASSWORD"
+  },
+  "STORAGE" : {
+    "TOKEN": "TOKEN",
+    "USERNAME": "USERNAME",
+    "PASSWORD": "PASSWORD"
+  },
+  "PAGINATION_LENGTH": 10000
+
+
+}

@@ -1,0 +1,18 @@
+
+<div class="background-primary header">
+  Elenco Operazioni
+</div>
+<mat-dialog-content>
+<div class="nessunodiv minheight" *ngIf="!operations || operations.length == 0">
+  NESSUNA
+</div>
+
+<mat-list>
+  <mat-list-item *ngFor="let operation of operations; let i = index ">
+    <h3 matLine>{{operation.descCustomer}}: {{operation.tipoServizio}}</h3>
+    <p matLine>
+     <span>Ore: {{genericCall.getOraMinuti(operation['timestamp'])}}  del {{genericCall.getDataFormat(operation['timestamp'])}}</span>
+    </p>
+  </mat-list-item>
+</mat-list>
+</mat-dialog-content>

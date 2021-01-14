@@ -1,0 +1,10 @@
+mat-form-field {
+    margin-right: 10px;
+  }
+  .agenda {
+    width: 100%;
+  }
+
+  .agenda .mat-cell {
+      font-size: 10px !important;
+  }

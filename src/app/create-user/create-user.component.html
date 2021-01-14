@@ -1,0 +1,53 @@
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Crea Nuovo Utente</mat-card-title>
+        <form autocomplete="off" novalidate [formGroup]="userForm" (ngSubmit)="register(userForm.value)"  fxLayout="column wrap"
+fxLayoutAlign="center center" fxLayoutGap="10px">
+
+<mat-card-content>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Username" formControlName="username">
+    <mat-error *ngIf="hasError('username', 'required')">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+<mat-form-field class="full-width">
+  <input matInput placeholder="Nome" formControlName="firstName">
+  <mat-error *ngIf="hasError('firstName', 'required')">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field class="full-width">
+  <input matInput placeholder="Cognome" formControlName="lastName">
+  <mat-error *ngIf="hasError('lastName', 'required')">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field class="full-width">
+  <input matInput placeholder="Codice Utente" formControlName="userId">
+  <mat-hint align="end">Inserire 3 caratteri</mat-hint>
+  <mat-error *ngIf="hasError('userId', 'required')">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field class="full-width">
+  <input type="password" matInput placeholder="Password" formControlName="temporayPassword">
+  <mat-error *ngIf="hasError('temporayPassword', 'required')">{{getErrorMessage()}}</mat-error>
+  <mat-error *ngIf="hasError('temporayPassword', 'pattern')">{{getErrorMessagePassword()}}</mat-error>
+</mat-form-field>
+</mat-card-content>
+
+
+
+<mat-card-actions style="text-align: center">
+    <button type="button" mat-raised-button color="warn" (click)="close()">Annulla</button>  
+    <button mat-raised-button color="primary" [disabled]="!userForm.valid">Crea</button>
+</mat-card-actions>
+
+</form>
+
+<p class="note">
+  La password deve contenere almeno un numero, una lettera minuscola, una maiuscola ed un carattere speciale. La lunghezza minima ammessa è di 8 caratteri.
+</p>
+
+       
+      </mat-card>
+    
+  </section>
+
+
+
+

@@ -1,0 +1,88 @@
+<mat-form-field>
+  <mat-label>Seleziona Utente</mat-label>
+  <mat-select [(value)]="userSelected">
+    <mat-option *ngFor="let user of users"  value="{{user.id}}">{{user.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field>
+  <input matInput [matDatepicker]="pickerInizio" [(ngModel)]="dataInizio" placeholder="Data Inizio" disabled>
+  <mat-datepicker-toggle matSuffix [for]="pickerInizio"></mat-datepicker-toggle>
+  <mat-datepicker #pickerInizio disabled="false"></mat-datepicker>
+</mat-form-field>
+
+
+<mat-form-field>
+<input matInput placeholder="Ora Inizio" [(ngModel)]="oraInizio" [ngxTimepicker]="pickerOraInizio" [format]="24" [disableClick]="false"  readonly>
+<ngx-material-timepicker #pickerOraInizio></ngx-material-timepicker>
+</mat-form-field>
+
+
+
+
+<mat-form-field>
+  <input matInput [matDatepicker]="pickerFine" [(ngModel)]="dataFine" placeholder="Data Fine" disabled>
+  <mat-datepicker-toggle matSuffix [for]="pickerFine"></mat-datepicker-toggle>
+  <mat-datepicker #pickerFine disabled="false"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Ora Fine" [(ngModel)]="oraFine" [ngxTimepicker]="pickerOraFine" [format]="24" [disableClick]="false"  readonly>
+  <ngx-material-timepicker #pickerOraFine></ngx-material-timepicker>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Accuratezza Massima (mt)</mat-label>
+    <mat-select [(value)]="accuratezza">
+      <mat-option *ngFor="let acc of accuratezzaList"  value="{{acc.value}}">{{acc.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+
+<button (click)="readGps()" mat-raised-button color="primary">Cerca</button>
+
+<div id="wrapper">
+  <div id="one">
+    <div class="background-primary header">
+      Dal {{genericCall.getDataFormat(timestampInizioUltimaRicerca)}} ore {{genericCall.getOraMinuti(timestampInizioUltimaRicerca)}} 
+      al {{genericCall.getDataFormat(timestampFineUltimaRicerca)}} ore  {{genericCall.getOraMinuti(timestampFineUltimaRicerca)}} 
+      (accuratezza: {{accuratezzaUltimaRicerca}})
+    </div>
+    <div class="nessunodiv" *ngIf="!locations || locations.length == 0">
+      NESSUNO
+    </div>
+    <mat-list>
+      <mat-list-item [ngClass]="{'boldItem': i == selectedIndex}" (click)="getRoutePath(i)" *ngFor="let route of locations; let i = index ">
+        <!--<mat-icon matListIcon>folder</mat-icon> -->
+        <mat-icon matListIcon>{{ activityTypeToShow[i] == 'in_vehicle' ? 'directions_car' : 'directions_run' }}</mat-icon>
+        <h3 matLine>TRAGITTO {{i+1}}</h3>
+        <p matLine>
+         <span>Dalle ore {{genericCall.getOraMinuti(route[0]['timestamp'])}} alle ore {{genericCall.getOraMinuti(route[route.length-1]['timestamp'])}} del {{genericCall.getDataFormat(route[0]['timestamp'])}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+  <div id="two"><div #gmap id="gusermap"></div></div>
+  <div id="three"><div class="background-primary header">
+      Elenco Operazioni
+    </div>
+    <div class="nessunodiv" *ngIf="!operations || operations.length == 0">
+      NESSUNA
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let operation of operations; let i = index ">
+        <h3 matLine>{{operation.descCustomer}}: {{operation.tipoServizio}}</h3>
+        <p matLine>
+         <span>Ore: {{genericCall.getOraMinuti(operation['timestamp'])}}  del {{genericCall.getDataFormat(operation['timestamp'])}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+</div>
+</div>
+
+
+

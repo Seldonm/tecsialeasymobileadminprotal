@@ -1,0 +1,13 @@
+.customers {
+    width: 100%;
+  }
+
+  .customers .mat-cell {
+      font-size: 10px !important;
+  }
+
+  .customers .mat-row:hover{
+    cursor: pointer;
+    background: #b4b4b433;
+  }
+

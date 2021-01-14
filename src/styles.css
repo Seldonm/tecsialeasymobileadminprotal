@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.dark-backdrop {
+    background: #000;
+    opacity: 0.75 !important;
+  }
+
+
+.create-user-container .mat-dialog-container {
+    padding: 0px !important;
+}
+
+.custom-button {
+  margin-bottom: 10px !important;
+  margin-right: 10px !important;
+}  

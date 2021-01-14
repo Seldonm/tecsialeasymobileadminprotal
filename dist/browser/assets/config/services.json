@@ -1,0 +1,16 @@
+{
+  "READGPS": { "PATH": "/gps", "METHOD": "GET" },
+  "LOGIN": { "PATH": "/admin/login", "METHOD": "POST" },
+  "USERLOGIN": { "PATH": "/login", "METHOD": "POST" },
+  "USERS": { "PATH": "/admin/users", "METHOD": "GET" },
+  "REGISTRATION": { "PATH": "/registration", "METHOD": "POST" },
+  "SNAPPEDPOINTS": {"PATH": "https://roads.googleapis.com/v1/snapToRoads", "METHOD": "GET", "FULLPATH": true, "RETURNALL": true },
+  "SENDFILEGETURL": {"PATH": "/admin/retrieveUploadSignedUrl?objectKey=clienti.accdb", "METHOD": "GET"},
+  "SENDFILEPUT": {"METHOD": "PUT", "RETURNALL": true},
+  "CUSTOMER": { "PATH": "/admin/customer?pagination=%pagination%&numPage=%numPage%", "METHOD": "GET" },
+  "CUSTOMER_OPERATION": { "PATH": "/admin/traceActionUser?idCustomer=$idCustomer$", "METHOD": "GET" },
+  "INTERVAL_OPERATIONS": {"PATH": "/admin/traceActionUser?userId=%userId%&start=%start%&end=%end%", "METHOD": "GET" },
+  "AGENDA": { "PATH": "/admin/agenda?userId=%userId%", "METHOD": "GET" }
+
+  
+}

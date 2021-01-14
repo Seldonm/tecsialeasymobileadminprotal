@@ -1,0 +1,44 @@
+/*agm-map {
+    height: 500px;
+  }*/
+
+
+  mat-form-field {
+    margin-right: 10px;
+  }
+
+  mat-list {
+    flex-grow: 1;
+    overflow: auto;
+    height:500px
+  }
+
+  mat-list-item {
+    cursor: pointer; 
+  }
+
+  .boldItem h3, .boldItem p {
+    font-weight: bold;
+  }
+
+  #gusermap {
+    width:100%;
+    height:500px
+  }
+
+  #wrapper {
+    display: flex;
+  }
+  
+  #one {
+    flex: 0 0 25%;
+  }
+  
+  #two {
+    flex: 1;
+  }
+
+  #three {
+    flex: 0 0 25%;
+  }
+

@@ -1,0 +1,34 @@
+<!--<button class="custom-button" (click)="caricaFile()" mat-raised-button color="primary">Carica Clienti</button>-->
+
+<button class="custom-button" (click)="createUser()" mat-raised-button color="primary">Crea Utente</button>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Cerca">
+  </mat-form-field>
+<div class="mat-elevation-z8">
+<table *ngIf="datasource" matSort mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Username</th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="given_name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+    <td mat-cell *matCellDef="let element"> {{element.given_name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Cognome</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Codice</th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator #paginator *ngIf="datasource" [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator> 
+</div>
